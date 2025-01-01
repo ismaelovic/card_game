@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ game_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ game_name }}</h1>
+
+    {% if card %}
+        <div id="card-area">
+            <div class="card-container">
+                <div class="card" data-game="{{ game_name }}" data-card="{{ card | tojson }}">
+                    <div class="card-face card-front">
+                        <p>{{ card.front }}</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p>{{ card.back }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-container"> {# Container for buttons #}
+            <button id="next-card-button">Næste kort</button>
+            <button id="exit-game-button">Afslut</button> {# New exit button #}
+        </div>
+    {% endif %}
+
+    <script>
+        const card = document.querySelector('.card');
+        if (card) {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        }
+
+        const nextCardButton = document.getElementById('next-card-button');
+        if (nextCardButton) {
+            nextCardButton.addEventListener('click', () => {
+                fetch('/next_card')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.reload();
+                        } else if (data.no_more_cards) {
+                            alert("No more cards!");
+                            window.location.href = "/";
+                        } else {
+                            alert('Error getting next card.');
+                        }
+                    });
+            });
+        }
+
+        const exitGameButton = document.getElementById('exit-game-button'); 
+        if (exitGameButton) {
+            exitGameButton.addEventListener('click', () => {
+                window.location.href = "/"; // Redirect to the main page
+            });
+        }
+    </script>
+</body>
+</html>

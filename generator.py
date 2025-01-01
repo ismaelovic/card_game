@@ -20,25 +20,30 @@ def generate_cards(
         [f"- {example}" for example in few_shot_examples]
     )
 
-    prompt = f"""You are an expert in card games and love to create content for games.
+    prompt = f"""Du er ekspert i kortspil og elsker at skabe indhold til spil.
 
-    Your task is to generate {num_cards} unique new examples for the card game '{game_name}'.
+        Din opgave er at generere {num_cards} unikke nye eksempler til kortspillet '{game_name}'.
 
-    Game Description: {game_description}
+        Spilbeskrivelse: {game_description}
 
-    Follow the pattern from these examples:
-    {formatted_examples}
-
-    IMPORTANT INSTRUCTIONS:
-    1. Output ONLY a valid JSON array of objects.
-    2. Each object in the array should represent a single example.
-    3. Do NOT include any markdown, code blocks (```json), explanations, or any other text before or after the JSON array.
-    4. Ensure the JSON is valid and can be parsed directly by a JSON parser.
-    5. Do not include any newlines or extra whitespace outside of the JSON array.
+        Følg mønsteret fra disse eksempler:
+        {formatted_examples}
+        Sørg for at dine eksempler er kreative, sjove og passer til spillet.
+        Sørg for at der er variation i eksemplerne, så de ikke er for ens.
+        
+        VIGTIGE INSTRUKTIONER:
+        1. Dit output må KUN være en gyldig JSON-array af objekter.
+        2. Hvert objekt i arrayet skal repræsentere et enkelt eksempel.
+        3. VIGTIGT: Dit svar må inden omstændigheder idneholde markdown, kodeblokke (```json), forklaringer eller nogen anden tekst før eller efter JSON-arrayet.
+        4. Sørg for, at JSON er gyldig og kan parses direkte af en python JSON-parser fx json.loads().
+        5. Medtag IKKE nye linjer eller ekstra mellemrum uden for JSON-arrayet.
     """
 
     try:
         llm_response = llm_generate_func(prompt)
+        if llm_response.startswith("```json"):
+            llm_response = llm_response.replace("```json", "")
+            llm_response = llm_response.replace("```", "")
         cards = json.loads(llm_response)
         return cards
     except (json.JSONDecodeError, IndexError) as e:

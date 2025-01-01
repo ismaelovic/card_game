@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ game_name }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <h1>Kortspil generatoren</h1>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="game_choice">Vælg et kortspil:</label>
+        <select name="game_choice" id="game_choice">
+            {% for name in game_names %}
+            <option value="{{ loop.index }}">{{ name }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="num_cards">Antal kort (1-20):</label>
+        <input type="number" name="num_cards" id="num_cards" min="1" max="20" value="1"><br><br>
+        <button type="submit">Generer kort!</button>
+    </form>
+</body>
+</html>

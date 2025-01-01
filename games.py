@@ -1,105 +1,183 @@
 def get_game_data(choice):
     """Returns the game data (examples, name, description) based on user choice."""
-    if choice == 1: # Encrypted
+    if choice == 1:  # Krypteret
         return (
             [
-                {"phrase": "Netflix and chill", "encrypted_phrase": "Net flicks and shill"}, # 'ch' to 'sh'
-                {"phrase": "I am an idiot", "encrypted_phrase": "Aye am an iddiot"}, # 'I' to 'Aye', double 'd'
-                {"phrase": "Pine of Guiness", "encrypted_phrase": "Pyne ov Ginness"}, # 'i' to 'y', 'u' to 'i'
-                {"phrase": "Coding is fun", "encrypted_phrase": "Kodeing iz phun"}, # 'c' to 'k', 'f' to 'ph'
-                {"phrase": "Lets go to the beach", "encrypted_phrase": "Lets go too the beech"}, # 'to' to 'too', 'ea' to 'ee'
-                {"phrase": "I love pizza", "encrypted_phrase": "Eye luv peetza"}, # 'I' to 'Eye', 'zz' to 'tz'
-                {"phrase": "Time for bed", "encrypted_phrase": "Tyme for bred"}, # 'i' to 'y', 'e' to 'e'
-                {"phrase": "Walking in the park", "encrypted_phrase": "Wauking in the park"}, # 'a' to 'au'
-                {"phrase": "Drinking coffee", "encrypted_phrase": "Drinkking kaughfee"}, # Double 'k', 'c' to 'k', 'ff' to 'ghf'
-                {"phrase": "Playing video games", "encrypted_phrase": "Playeing viddeo gaymes"}, # 'ay' to 'ey', double 'd', 'a' to 'ay'
-                {"phrase": "Reading a book", "encrypted_phrase": "Reeding ha buk"}, # 'oo' to 'u'
-                {"phrase": "Learning new things", "encrypted_phrase": "Lurning nu thingz"}, # 'ea' to 'ur', 'ew' to 'u', 's' to 'z'
-                {"phrase": "Having a good time", "encrypted_phrase": "Havving a good tyme"}, # Double 'v', 'i' to 'y'
-                {"phrase": "Enjoying the sunshine", "encrypted_phrase": "Enjoying the sun shine"}, # No change (sometimes good to have some unchanged examples)
-                {"phrase": "Watching a movie", "encrypted_phrase": "Wotchhing a muvee"}, # 'a' to 'o', double 'h', 'ie' to 'ee'
-                {"phrase": "Listening to music", "encrypted_phrase": "Lisening too mewzik"}, # 't' to nothing, 'oo' to 'ew', 'ic' to 'ik'
-                {"phrase": "The quick brown fox", "encrypted_phrase": "Teh kw ikb rown foks"}, # 'ck' to 'k', 'x' to 'ks'
-                {"phrase": "Jump over the lazy dog", "encrypted_phrase": "Jumm p ovver the layzee dogg"}, # Double letters, 'y' to 'ee', double 'g'
-                {"phrase": "Hello world", "encrypted_phrase": "Helo wurld"}, # 'll' to 'l', 'o' to 'u'
-                {"phrase": "Goodbye moon", "encrypted_phrase": "Goodby mune"}, # 'ee' to 'e'
-                {"phrase": "Right now", "encrypted_phrase": "Rite nau"}, # 'gh' to nothing, 'ow' to 'au'
-                {"phrase": "Very good", "encrypted_phrase": "Verry gud"}, # Double 'r', 'oo' to 'u'
-                {"phrase": "See you later", "encrypted_phrase": "Cee yoo layter"}, # 'ee' to 'ee'
-                {"phrase": "Thank you", "encrypted_phrase": "Thank yew"}, # 'ou' to 'ew'
-                {"phrase": "No problem", "encrypted_phrase": "No pro blem"}, # space added
-                {"phrase": "Have a nice day", "encrypted_phrase": "Hav a nyce day"}, # 'e' to 'y'
-                {"phrase": "How are you", "encrypted_phrase": "How r u"}, # abbreviation
-                {"phrase": "What are you doing", "encrypted_phrase": "What r u duing"}, # abbreviation
-                {"phrase": "I dont know", "encrypted_phrase": "Eye dont no"}, # 'I' to 'Eye', 'k' to nothing
-                {"phrase": "See you soon", "encrypted_phrase": "C u sune"} # abbreviation
+                {
+                    "front": "Pro tæjn pull ver i blænn der",
+                    "back": "Proteinpulver i blender",
+                },
+                {
+                    "front": "Bæk pæk ker ne i taj lænd",
+                    "back": "Backpackerne i Thailand",
+                },
+                {
+                    "front": "Kann du mo bil pej mæj tuh hun dre",
+                    "back": "Kan du MobilePay mig to hundrede",
+                },
+                {"front": "Jim nah sie fæst i aaf den", "back": "Gymnasiefest i aften"},
+                {
+                    "front": "Åv hang ig åv pro tæjn shejks",
+                    "back": "Afhængig af protein shakes",
+                },
+                {
+                    "front": "Kross fitt med bro i senn ter",
+                    "back": "Crossfit med bro i center",
+                },
+                {
+                    "front": "Tindr dejt gik helt galt i gåhr",
+                    "back": "Tinder date gik helt galt i går",
+                },
+                {
+                    "front": "Gluh ten åller gi test påh mann dag",
+                    "back": "Glutenallergitest på mandag",
+                },
+                {
+                    "front": "Spis kont roll åpp en virr ker ikk",
+                    "back": "Spisekontrol appen virker ikke",
+                },
+                {
+                    "front": "Træ nings senn ter snåbb i week end",
+                    "back": "Træningscenter snob i weekend",
+                },
+                {
+                    "front": "Åv hang ig åv kahf fæ bårs påh strø jet",
+                    "back": "Afhængig af kaffebars på Strøget",
+                },
+                {
+                    "front": "Vej gahn er mad pla ner påh ins ta",
+                    "back": "Veganer madplaner på Insta",
+                },
+                {
+                    "front": "Phitt ness inn flu en ser påh you tjub",
+                    "back": "Fitness influencer på YouTube",
+                },
+                {
+                    "front": "Smahr wat tsch tell ler mæj ålt",
+                    "back": "Smartwatch fortæller mig alt",
+                },
+                {
+                    "front": "Mind full ness åpp påh tele phon",
+                    "back": "Mindfulness app på telefon",
+                },
             ],
-            "Encrypted",
-            "A word game where one side of the card has a phrase and the other side has an encrypted version.",
+            "Krypteret",
+            "Et ordspil, hvor den ene side af kortet har en sætning, og den anden side har en krypteret version.",
         )
-    elif choice == 2: # Reverse Trivia
+    elif choice == 2:  # Kortslutning
         return (
             [
-                {"question": "What is the capital of France?", "answer": "Paris"},
-                {"question": "What color is a banana when it's ripe?", "answer": "Yellow"},
-                {"question": "How many sides does a triangle have?", "answer": "Three"},
-                {"question": "What is two plus two?", "answer": "Four"},
-                {"question": "In what year did World War II end?", "answer": "1945"},
-                {"question": "What is the chemical symbol for water?", "answer": "H2O"},
-                {"question": "How many continents are there?", "answer": "Seven"},
-                {"question": "Who painted the Mona Lisa?", "answer": "Leonardo da Vinci"},
-                {"question": "What is the largest planet in our solar system?", "answer": "Jupiter"},
-                {"question": "How many teeth does an adult human typically have?", "answer": "32"},
-                {"question": "What is the speed of light?", "answer": "Approximately 299,792,458 meters per second"},
-                {"question": "What is the smallest prime number?", "answer": "2"},
-                {"question": "What is the name of Earth's only natural satellite?", "answer": "The Moon"},
-                {"question": "How many bones are in the adult human body?", "answer": "206"},
-                {"question": "What gas do plants absorb from the atmosphere?", "answer": "Carbon Dioxide"},
-                {"question": "What is the boiling point of water in Celsius?", "answer": "100"},
-                {"question": "Who wrote 'Hamlet'?", "answer": "William Shakespeare"},
-                {"question": "What is the chemical symbol for gold?", "answer": "Au"},
-                {"question": "What is the currency of Japan?", "answer": "Japanese Yen"},
-                {"question": "How many ventricles are in the human heart?", "answer": "Four"},
-                {"question": "What is the name of the longest river in the world?", "answer": "The Nile"},
-                {"question": "What is the formula for area of a circle?", "answer": "πr²"},
-                {"question": "What is the name of the force that keeps us on the ground?", "answer": "Gravity"},
-                {"question": "How many days are in a leap year?", "answer": "366"},
-                {"question": "What is the name of the Earth's atmosphere's protective layer?", "answer": "Ozone Layer"},
-                {"question": "What is the name of the closest star to Earth?", "answer": "The Sun"},
-                {"question": "What is the smallest country in the world?", "answer": "Vatican City"},
-                {"question": "What is the largest ocean on Earth?", "answer": "Pacific Ocean"},
-                {"question": "Who developed the theory of relativity?", "answer": "Albert Einstein"},
-                {"question": "What is the chemical symbol for oxygen?", "answer": "O"},
+                {
+                    "front": "Er det normalt at gå med en badehat på arbejde?",
+                    "back": "Ja",
+                },
+                {"front": "Måler en IQ-test din alder?", "back": "Ja"},
+                {"front": "Kan man affyre et våben?", "back": "Nej"},
+                {"front": "Har Pippi Langstrømpe en hest?", "back": "Nej"},
+                {"front": "Er en 1/5 mere end en 1/4?", "back": "Ja"},
+                {
+                    "front": "Ved du hvor mange mennesker der kommer til at bo på jorden om 500 år?",
+                    "back": "Ja",
+                },
+                {
+                    "front": "Er det normalt at børste tænder med ketchup?",
+                    "back": "Nej",
+                },
+                {"front": "Lyver alle der siger de elsker chokolade?", "back": "Ja"},
+                {"front": "Er himlen blå?", "back": "Nej"},
+                {"front": "Plejer du at lyve så snart du åbner munden?", "back": "Ja"},
+                {"front": "Har myrer ben?", "back": "Nej"},
+                {
+                    "front": "Bliver andre glade når man springer over køen?",
+                    "back": "Ja",
+                },
+                {
+                    "front": "Får du stadig sutteflaske inden du skal sove?",
+                    "back": "Ja",
+                },
+                {"front": "Er Anden Verdenskrig slut??", "back": "Ja"},
+                {
+                    "front": "Er det normalt at spise sin frokost til morgenmad?",
+                    "back": "Ja",
+                },
+                {"front": "Har slanger ben?", "back": "Ja"},
+                {"front": "har du nogensinde spist en ostemad?", "back": "Nej"},
+                {"front": "Er halvdelen det samme som 50%?", "back": "Nej"},
+                {"front": "Er din morfar din bror?", "back": "Ja"},
+                {"front": "Har du ti fingre på hver hånd?", "back": "Ja"},
             ],
-            "Reverse Trivia",
-            "A word game where a player is presented with a question (card) and is only given points for wrong answers.",
+            "Kortslutning",
+            "Et ordspil, hvor en spiller præsenteres for et spørgsmål (kort) og kun får point for forkerte svar."
+            "Spørgsmålene er formuleret sådan, at det er svært at svare rigtigt. Man skal svare ja eller nej."
+            "front er spørgsmålet, og back er det tilsvarende forkerte svar. fx Spørgsmål: har slanger ben? Svar: Ja. (Svaret er ukorrekt hivlket giver point i spillet)",
         )
-    elif choice == 3: # Logic
+    elif choice == 3:  # Det burde man jo vide
         return (
             [
-                {"question": "All squares are rectangles.", "answer": "Yes"},
-                {"question": "Fish can fly.", "answer": "No"},
-                {"question": "The moon is made of cheese that sings opera while riding a bicycle.", "answer": "Nonsense"},
-                {"question": "If it rains, the ground gets wet.", "answer": "Yes"},
-                {"question": "Cats are vegetables.", "answer": "No"},
-                {"question": "Numbers can smell colors.", "answer": "Nonsense"},
-                {"question": "The sun rises in the east.", "answer": "Yes"},
-                {"question": "Birds are mammals.", "answer": "No"},
-                {"question": "Trees talk to each other using invisible rainbows.", "answer": "Nonsense"},
-                {"question": "Water is wet.", "answer": "Yes"},
-                {"question": "Dogs lay eggs.", "answer": "No"},
-                {"question": "Books can drive cars to the library.", "answer": "Nonsense"},
-                {"question": "Humans need oxygen to breathe.", "answer": "Yes"},
-                {"question": "Spiders have eight legs.", "answer": "Yes"},
-                {"question": "Clouds are made of cotton candy that rains lemonade.", "answer": "Nonsense"},
-                {"question": "Fire is cold.", "answer": "No"},
-                {"question": "The Earth is flat.", "answer": "No"},
-                {"question": "Pencils can swim in the ocean.", "answer": "Nonsense"},
-                {"question": "Gravity pulls things downwards.", "answer": "Yes"},
-                {"question": "Elephants are small insects.", "answer": "No"}
+                {"front": "Hvad er det kemiske symbol for guld?", "back": "Au"},
+                {
+                    "front": "Hvem skrev romanen 'Stolthed og fordom'?",
+                    "back": "Jane Austen",
+                },
+                {
+                    "front": "I hvilket århundrede levede Leonardo da Vinci?",
+                    "back": "Det 15. og 16. århundrede (1452-1519)",
+                },
+                {
+                    "front": "Hvad er den mindste planet i vores solsystem?",
+                    "back": "Merkur",
+                },
+                {
+                    "front": "Hvilket grundstof er mest udbredt i Jordens atmosfære?",
+                    "back": "Nitrogen (kvælstof)",
+                },
+                {"front": "Hvad er hovedstaden i Japan?", "back": "Tokyo"},
+                {"front": "Hvem opfandt telefonen?", "back": "Alexander Graham Bell"},
+                {"front": "Hvor mange sider har en sekskant?", "back": "Seks"},
+                {"front": "Hvilket år startede 2. verdenskrig?", "back": "1939"},
+                {
+                    "front": "Hvad er det officielle sprog i Brasilien?",
+                    "back": "Portugisisk",
+                },
             ],
-            "Logic",
-            "A word game where you find rhyming words.",
+            "Det burde man jo vide",
+            "Et spil, der udfordrer spillere i almen viden. Med spørgsmål om alt mellem himmel og jord, er dette spil en sand test af, hvad du burde vide.",
         )
-    
+    elif choice == 4:  # Logic
+        return (
+            [
+          {"front": "Alle kvadrater er rektangler.", "back": "Ja"},
+          {"front": "Fisk kan flyve.", "back": "Nej"},
+          {
+              "front": "Månen er lavet af ost der synger opera mens den cykler.",
+              "back": "Nonsens",
+          },
+          {"front": "Hvis det regner, bliver jorden våd.", "back": "Ja"},
+          {"front": "Katte er grøntsager.", "back": "Nej"},
+          {"front": "Tal kan lugte farver.", "back": "Nonsens"},
+          {"front": "Solen står op i øst.", "back": "Ja"},
+          {"front": "Fugle er pattedyr.", "back": "Nej"},
+          {
+              "front": "Træer taler med hinanden via usynlige regnbuer.",
+              "back": "Nonsens",
+          },
+          {"front": "Vand er vådt.", "back": "Ja"},
+          {"front": "Hunde lægger æg.", "back": "Nej"},
+          {"front": "Bøger kan køre bil til biblioteket.", "back": "Nonsens"},
+          {"front": "Mennesker har brug for ilt for at trække vejret.", "back": "Ja"},
+          {"front": "Edderkopper har otte ben.", "back": "Ja"},
+          {
+              "front": "Skyer er lavet af candyfloss der regner limonade.",
+              "back": "Nonsens",
+          },
+          {"front": "Ild er koldt.", "back": "Nej"},
+          {"front": "Jorden er flad.", "back": "Nej"},
+          {"front": "Blyanter kan svømme i havet.", "back": "Nonsens"},
+          {"front": "Tyngdekraften trækker ting nedad.", "back": "Ja"},
+          {"front": "Elefanter er små insekter.", "back": "Nej"},
+            ],
+            "Logik",
+            "Et ordspil hvor du finder ord der rimer.",
+        )
+
     return None  # Invalid choice
